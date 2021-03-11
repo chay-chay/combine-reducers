@@ -5,12 +5,20 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import manageAuthorsAndBooks from './reducers/manageAuthorsAndBooks';
 
+import { createStore } from "redux";
+import rootReducer from "./reducers/manageAuthorsAndBooks";
 
-const store = createStore(manageAuthorsAndBooks, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+); 
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App store={store}/>
-  </Provider>,
-  document.getElementById('root')
-);
+// we don't need to change anything with createStore unless we wanted to update names we've assigned:
+// const store = createStore(manageAuthorsAndBooks, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App store={store}/>
+//   </Provider>,
+//   document.getElementById('root')
+// );
